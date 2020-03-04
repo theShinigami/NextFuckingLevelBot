@@ -8,7 +8,7 @@
 
 
 
- const BOT_TOKEN = "1042520496:AAH5md_xVBpglQGwgljOGvOwXgcisXjhp7k";
+ const BOT_TOKEN = "";
 
 
  module.exports.BOT_TOKEN = BOT_TOKEN;
