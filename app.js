@@ -9,7 +9,7 @@ const Secrets = require("./src/Secrets");
 // bot
 const bot = new Telegraf(Secrets.BOT_TOKEN);
 
-console.log("==> Bot Started!");
+console.log("==> Bot Started...");
 
 
 
