@@ -1,9 +1,9 @@
 const Telegraf = require('telegraf');
 const TelegrafFlow = require('telegraf-flow');
-const { Scene } = TelegrafFlow;
 const flow = new TelegrafFlow();
 
 const Secrets = require("./src/Secrets");
+const { Scenes } = require("./src/Scenes");
 
 
 // bot
@@ -13,8 +13,20 @@ console.log("==> Bot Started...");
 
 
 
-bot.start((ctx) => ctx.reply('Welcome!'))
-bot.help((ctx) => ctx.reply('Send me a sticker'))
-bot.on('sticker', (ctx) => ctx.reply('👍'))
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+
+
+flow.start((ctx) => {
+    ctx.reply("Hello");
+    ctx.flow.enter("gretterScene");
+})
+
+
+
+// register
+flow.register(new Scenes().greeterScene());
+
+
+bot.use(Telegraf.session())
+bot.use(flow.middleware())
+
 bot.launch()
