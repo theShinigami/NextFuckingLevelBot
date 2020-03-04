@@ -10,6 +10,7 @@ const TelegrafFlow = require('telegraf-flow');
 const { Scene } = TelegrafFlow;
 
 const { Keyboard } = require("./Keyboard");
+const { Log } = require("./Log");
 
 
  class Scenes {
@@ -25,6 +26,9 @@ const { Keyboard } = require("./Keyboard");
              let fname = ctx.from.first_name;
 
              ctx.reply(`Hello ${fname}`, this.keyboard.mainKeyboard());
+
+             // log
+             new Log(ctx).log("Started the bot!");
 
              // leave
              ctx.flow.leave();
@@ -44,6 +48,8 @@ const { Keyboard } = require("./Keyboard");
             ctx.flow.leave(); // leave
         });
 
+        // log
+        new Log(ctx).log("on help");
 
         help.leave((ctx) => {});
 
@@ -59,6 +65,9 @@ const { Keyboard } = require("./Keyboard");
             ctx.reply("This is the about menu");
             ctx.flow.leave(); // leave
         });
+
+        // log
+        new Log(ctx).log("on about");
 
         about.leave((ctx) => {});
 
