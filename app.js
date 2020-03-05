@@ -6,6 +6,7 @@ const Secrets = require("./src/Secrets");
 const { Scenes } = require("./src/Scenes");
 const { CommandHandler } = require("./src/CommandHandler");
 const { Hear } = require("./src/Hear");
+const { ActionHandler } = require("./src/ActionHandler");
 
 
 // bot
@@ -17,6 +18,9 @@ const commandHandler = new CommandHandler(flow);
 // Hear
 const hear = new Hear(flow);
 
+// Action
+const actionHandler = new ActionHandler(bot);
+
 console.log("==> Bot Started...");
 
 
@@ -25,6 +29,11 @@ commandHandler.start();
 
 // Hear
 hear.hear();
+
+
+// action
+actionHandler.actions();
+
 
 
 

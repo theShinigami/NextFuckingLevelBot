@@ -7,6 +7,7 @@
  */
 
  const Strings = require("./Strings");
+ const Secrets = require("./Secrets");
 
 
  class Hear {
@@ -16,18 +17,28 @@
 
 
      hear() {
+
          this.ctx.hears(Strings.snfl, (ctx) => {
-             ctx.flow.enter("nextfuckinglevelScene");
+            (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("nextfuckinglevelScene") : ctx.reply("Hello");
          });
 
 
          this.ctx.hears(Strings.shelp, (ctx) => {
-             ctx.flow.enter("helpScene");
+             (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("helpScene") : ctx.reply("Hello");
          })
 
          this.ctx.hears(Strings.sabout, (ctx) => {
-             ctx.flow.enter("aboutScene");
+             (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("aboutScene") : ctx.reply("Hello");
          });
+     }
+
+
+     isAdmin(id) {
+         for (let i=0; i<Secrets.ADMINS.length; i++) {
+             if (Secrets.ADMINS[i] == id) return true;
+         }
+
+         return false;
      }
  }
 

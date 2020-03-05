@@ -1,4 +1,16 @@
+/**
+ * 
+ * 
+ * 
+ * CommandHandler.js
+ * 
+ * 
+ * 
+ */
 
+
+ const Secrets = require("./Secrets");
+ const { Log } = require("./Log");
 
 
 class CommandHandler {
@@ -9,8 +21,26 @@ class CommandHandler {
 
     start() {
         this.flow.start((ctx) => {
-            ctx.flow.enter("gretterScene");
+            (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("gretterScene") : this.logReply(ctx, "Hello");
         });
+    }
+
+
+    logReply(ctx, msg) {
+        // log
+        new Log(ctx).log("started the bot");
+
+        ctx.reply(msg);
+    }
+
+
+
+    isAdmin(id) {
+        for (let i=0; i<Secrets.ADMINS.length; i++) {
+            if (Secrets.ADMINS[i] == id) return true;
+        }
+
+        return false;
     }
 
     

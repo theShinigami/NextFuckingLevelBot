@@ -39,6 +39,21 @@
 
          return extra;
      }
+
+     
+     postApprovalCallback() {
+         return Extra.markup(Markup.inlineKeyboard([
+             Markup.callbackButton("Approve", "approve-post"),
+             Markup.callbackButton("Decline", "decline-post")
+         ]));
+     }
+
+
+     removeInline() {
+         return Extra.markup(
+             Markup.removeKeyboard()
+         );
+     }
  }
 
 
