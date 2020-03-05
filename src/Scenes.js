@@ -11,11 +11,14 @@ const { Scene } = TelegrafFlow;
 
 const { Keyboard } = require("./Keyboard");
 const { Log } = require("./Log");
+const { RedditHandler } = require("./RedditHandler");
+const Secrets = require('./Secrets');
 
 
  class Scenes {
      constructor() {
          this.keyboard = new Keyboard();
+         this.redditHandler = new RedditHandler();
      }
 
 
@@ -39,17 +42,61 @@ const { Log } = require("./Log");
          return greeter;
      }
 
+     nextfuckinglevelScene() {
+         const nfl = new Scene("nextfuckinglevelScene");
+
+         nfl.enter((ctx) => {
+             ctx.reply("How many posts do you need?");
+             // log
+             new Log(ctx).log("click on nextfuckinglevel");
+         });
+
+         
+         nfl.on('message', (ctx) => {
+             let msg = ctx.message.text;
+
+             if (isNaN(msg)) {
+                 ctx.reply("Invalid input!");
+
+                 ctx.flow.enter("nextfuckinglevelScene");
+             } else {
+                 this.redditHandler.returnNextLevel(Number(msg), (u) => {
+                     if (u.is_video) {
+                         ctx.replyWithVideo(
+                             u.media.reddit_video.fallback_url,
+                             this.keyboard.firstRedditCallback(u.title)
+                         );
+                     } else {
+                         ctx.replyWithPhoto(
+                             u.url,
+                             this.keyboard.firstRedditCallback(u.title)
+                         );
+                     }
+                 })
+             }
+         })
+
+         
+
+         nfl.leave((ctx) => {});
+
+         return nfl;
+     }
+
 
      helpScene() {
         const help = new Scene("helpScene");
 
         help.enter((ctx) => {
             ctx.reply("This is the help menu");
+
+            // log
+            new Log(ctx).log("on help");   
+
             ctx.flow.leave(); // leave
         });
 
-        // log
-        new Log(ctx).log("on help");
+        
 
         help.leave((ctx) => {});
 
@@ -63,11 +110,14 @@ const { Log } = require("./Log");
 
         about.enter((ctx) => {
             ctx.reply("This is the about menu");
+
+            
+             // log
+             new Log(ctx).log("on about");
+
             ctx.flow.leave(); // leave
         });
 
-        // log
-        new Log(ctx).log("on about");
 
         about.leave((ctx) => {});
 

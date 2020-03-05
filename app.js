@@ -30,6 +30,7 @@ hear.hear();
 
 // register
 flow.register(new Scenes().greeterScene());
+flow.register(new Scenes().nextfuckinglevelScene());
 flow.register(new Scenes().helpScene());
 flow.register(new Scenes().aboutScene());
 

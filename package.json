@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/masterSal/NextFuckingLevelBot#readme",
   "dependencies": {
-    "reddit": "^1.0.3",
+    "snoowrap": "^1.21.0",
     "telegraf": "^3.36.0",
     "telegraf-flow": "^8.3.0"
   }

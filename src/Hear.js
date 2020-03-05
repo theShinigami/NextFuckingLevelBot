@@ -17,7 +17,7 @@
 
      hear() {
          this.ctx.hears(Strings.snfl, (ctx) => {
-             ctx.reply("yooooooo");
+             ctx.flow.enter("nextfuckinglevelScene");
          });
 
 

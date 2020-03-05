@@ -27,6 +27,18 @@
          .resize()
          .extra();
      }
+
+     
+     firstRedditCallback(c) {
+         const extra = Extra.markup(Markup.inlineKeyboard([
+             Markup.callbackButton("Confirm", "confirm-post"),
+             Markup.callbackButton("Cancel", "cancel-post")
+         ]));
+
+         extra.caption = c;
+
+         return extra;
+     }
  }
 
 
