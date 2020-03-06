@@ -98,9 +98,12 @@ const Secrets = require("./Secrets");
                              this.keyboard.firstRedditCallback(u.title)
                          );
                      }
-                 })
+                 });
              }
-         })
+
+             // leave 
+             ctx.flow.leave();
+         });
 
          
 
