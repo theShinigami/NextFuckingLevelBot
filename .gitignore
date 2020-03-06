@@ -1,3 +1,2 @@
 node_modules/
-src/Secrets.js
 test/reddit_test.js

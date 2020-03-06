@@ -21,11 +21,33 @@
      mainKeyboard() {
          return Markup.keyboard([
              [Strings.snfl],
-             [Strings.shelp, Strings.sabout]
+             [Strings.shelp, Strings.sfeedback],
+             [Strings.sabout]
          ])
          .oneTime()
          .resize()
          .extra();
+     }
+
+
+     normalKeyboard() {
+        return Markup.keyboard([
+            [Strings.sfeedback],
+            [Strings.sabout]
+        ])
+        .oneTime()
+        .resize()
+        .extra();
+     }
+
+
+     cancelKeyboard() {
+        return Markup.keyboard([
+            [Strings.scancel]
+        ])
+        .oneTime()
+        .resize()
+        .extra();
      }
 
      

@@ -21,17 +21,10 @@ class CommandHandler {
 
     start() {
         this.flow.start((ctx) => {
-            (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("gretterScene") : this.logReply(ctx, "Hello");
+            (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("greeterScene") : ctx.flow.enter("greeterScene2");
         });
     }
 
-
-    logReply(ctx, msg) {
-        // log
-        new Log(ctx).log("started the bot");
-
-        ctx.reply(msg);
-    }
 
 
 

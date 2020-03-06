@@ -10,7 +10,7 @@ const { ActionHandler } = require("./src/ActionHandler");
 
 
 // bot
-const bot = new Telegraf(Secrets.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // commandHandler
 const commandHandler = new CommandHandler(flow);
@@ -39,12 +39,18 @@ actionHandler.actions();
 
 // register
 flow.register(new Scenes().greeterScene());
+flow.register(new Scenes().greeterScene2());
 flow.register(new Scenes().nextfuckinglevelScene());
 flow.register(new Scenes().helpScene());
 flow.register(new Scenes().aboutScene());
+flow.register(new Scenes().feedbackScene());
 
 
 bot.use(Telegraf.session())
 bot.use(flow.middleware())
 
-bot.launch()
+
+bot.setWebhook("https://nextfuckinglevelbot.herokuapp.com/" + process.env.BOT_TOKEN);
+bot.startWebhook('/' + Secrets.BOT_TOKEN, null, process.env.PORT)
+
+// bot.launch()
