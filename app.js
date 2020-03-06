@@ -51,6 +51,6 @@ bot.use(flow.middleware())
 
 
 bot.telegram.setWebhook("https://nextfuckinglevelbot.herokuapp.com/" + process.env.BOT_TOKEN);
-bot.startWebhook('/' + Secrets.BOT_TOKEN, null, process.env.PORT)
+bot.startWebhook('/' + process.env.BOT_TOKEN, null, process.env.PORT)
 
 // bot.launch()
