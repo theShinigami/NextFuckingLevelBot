@@ -17,7 +17,7 @@
 
  const MAIN_CHANNEL_USERNAME = "@nextfuckinlevel";
 
- const ADMINS = [378456001]
+ const ADMINS = [378456001, 380066145]
 
  // reddit
  const USER_AGENT = "reddit is awesome";
