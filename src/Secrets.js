@@ -27,7 +27,6 @@
  const REDDIT_PASSWORD = "Salim@BLaCKreddit.com47";
 
 
- module.exports.BOT_TOKEN = BOT_TOKEN;
  module.exports.LOG_ID = LOG_ID;
  module.exports.LOG_TITLE = LOG_TITLE;
  module.exports.APPROVAL_ID = APPROVAL_ID;
