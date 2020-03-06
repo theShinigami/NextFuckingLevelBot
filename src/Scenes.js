@@ -160,7 +160,6 @@ const Secrets = require("./Secrets");
 
      feedbackScene() {
          const feedback = new Scene("feedbackScene");
-         const markup = Extra.markdown();
 
          feedback.enter((ctx) => {
              ctx.reply("Type in your feedback 😊", this.keyboard.cancelKeyboard());
@@ -175,7 +174,7 @@ const Secrets = require("./Secrets");
              let crafted_msg = new Log(ctx).ctxBeautifier() + 
                             `\n\n******FEEDBACK******\n\n${msg}`;
 
-             ctx.telegram.sendMessage(Secrets.APPROVAL_ID, crafted_msg, markup);
+             ctx.telegram.sendMessage(Secrets.APPROVAL_ID, crafted_msg);
 
              // is feedback entered
              ctx.flow.state.is_feedback_exists = true;
