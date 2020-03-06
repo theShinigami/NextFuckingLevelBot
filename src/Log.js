@@ -17,9 +17,9 @@
 
      log(msg) {
          let data = this.ctxBeautifier() + `\n\n${msg}`;
-         let extra = Extra.markdown();
+        //  let extra = Extra.markdown();
 
-         this.ctx.telegram.sendMessage(Secrets.LOG_ID, data, extra);
+         this.ctx.telegram.sendMessage(Secrets.LOG_ID, data);
      }
 
      ctxBeautifier() {
