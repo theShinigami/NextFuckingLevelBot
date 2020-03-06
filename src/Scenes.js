@@ -100,6 +100,9 @@ const Secrets = require("./Secrets");
                      }
                  });
              }
+            
+             // change keyboard
+             ctx.reply("Done!", this.keyboard.mainKeyboard());
 
              // leave 
              ctx.flow.leave();
