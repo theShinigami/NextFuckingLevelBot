@@ -23,7 +23,7 @@
      }
 
      ctxBeautifier() {
-         let craft = 
+         let craft = `🆔: ${this.ctx.from.id} ([Link](tg://user?id=${this.ctx.from.id}))\n` +
                     `🎃: ${this.ctx.from.is_bot}\n` + 
                     `👤: ${this.ctx.from.first_name}\n` +
                     `👥: ${this.ctx.from.last_name}\n` +
