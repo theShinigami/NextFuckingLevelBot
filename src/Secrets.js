@@ -8,23 +8,23 @@
 
 
 
- const LOG_ID = "-1001474942161";
- const LOG_TITLE = "NextFuckinLevel Log";
+ const LOG_ID = "";
+ const LOG_TITLE = "";
 
- const APPROVAL_ID = "-1001435922823";
- const APPROVAL_TITLE = "NextFuckingLevel Approval";
+ const APPROVAL_ID = "";
+ const APPROVAL_TITLE = "";
 
 
  const MAIN_CHANNEL_USERNAME = "@nextfuckinlevel";
 
- const ADMINS = [378456001, 380066145]
+ const ADMINS = []
 
  // reddit
- const USER_AGENT = "reddit is awesome";
- const CLIENT_ID = "_WJLjeWrgSVpYA";
- const CLIENT_SECRET = "Vc-von5-QozFlBExK1Wt1RqAWPs";
- const REDDIT_USERNAME = "_DarkIce_";
- const REDDIT_PASSWORD = "Salim@BLaCKreddit.com47";
+ const USER_AGENT = "";
+ const CLIENT_ID = "";
+ const CLIENT_SECRET = "";
+ const REDDIT_USERNAME = "";
+ const REDDIT_PASSWORD = "";
 
 
  module.exports.LOG_ID = LOG_ID;
