@@ -13,6 +13,7 @@
  const sabout = "🎭 About";
  const sfeedback = "✏ Feedback";
  const scancel = "❌ Cancel";
+ const sother = "🧐 Other";
 
 
  const help_string = snfl + ": fetchs posts from nextfuckinglevel subreddit!\n\n" +
@@ -32,5 +33,6 @@
  module.exports.sabout = sabout;
  module.exports.sfeedback = sfeedback;
  module.exports.scancel = scancel;
+ module.exports.sother = sother;
  module.exports.help_string = help_string;
  module.exports.about_string = about_string;

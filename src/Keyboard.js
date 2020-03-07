@@ -21,6 +21,7 @@
      mainKeyboard() {
          return Markup.keyboard([
              [Strings.snfl],
+             [Strings.sother],
              [Strings.shelp, Strings.sfeedback],
              [Strings.sabout]
          ])

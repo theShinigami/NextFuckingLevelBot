@@ -50,7 +50,7 @@ bot.use(Telegraf.session())
 bot.use(flow.middleware())
 
 
-bot.telegram.setWebhook("https://<heroku_app>.herokuapp.com/" + process.env.BOT_TOKEN);
+bot.telegram.setWebhook("https://nextfuckinglevelbot.herokuapp.com/" + process.env.BOT_TOKEN);
 bot.startWebhook('/' + process.env.BOT_TOKEN, null, process.env.PORT)
 
 // bot.launch()
