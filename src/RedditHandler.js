@@ -32,12 +32,12 @@ const Secrets = require("./Secrets");
           });
      }
 
-     returnNextLevel(limit, cb) {
+     returnNextLevel(limit, subr, cb) {
          if (this.r != null) {
             
  
             this.r
-                .getSubreddit('nextfuckinglevel')
+                .getSubreddit(subr)
                 .getHot({limit: limit})
                 .then(data => {
                     for (let i=1; i<data.length; i++) {

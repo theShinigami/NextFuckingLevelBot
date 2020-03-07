@@ -44,6 +44,7 @@ flow.register(new Scenes().nextfuckinglevelScene());
 flow.register(new Scenes().helpScene());
 flow.register(new Scenes().aboutScene());
 flow.register(new Scenes().feedbackScene());
+flow.register(new Scenes().otherScene());
 
 
 bot.use(Telegraf.session())

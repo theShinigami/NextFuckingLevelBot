@@ -25,6 +25,10 @@
             (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("nextfuckinglevelScene") : ctx.reply("Hello");
          });
 
+         this.ctx.hears(Strings.sother, (ctx) => {
+             (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("otherScene") : ctx.reply("Hello");
+         });
+
 
          this.ctx.hears(Strings.shelp, (ctx) => {
              (this.isAdmin(ctx.from.id)) ? ctx.flow.enter("helpScene") : ctx.reply("Hello");

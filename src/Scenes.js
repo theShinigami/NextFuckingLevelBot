@@ -86,7 +86,7 @@ const Secrets = require("./Secrets");
 
                  ctx.flow.enter("nextfuckinglevelScene");
              } else {
-                 this.redditHandler.returnNextLevel(Number(msg), (u) => {
+                 this.redditHandler.returnNextLevel(Number(msg), 'nextfuckinglevel', (u) => {
                      if (u.is_video) {
                          ctx.replyWithVideo(
                              u.media.reddit_video.fallback_url,
@@ -113,6 +113,39 @@ const Secrets = require("./Secrets");
          nfl.leave((ctx) => {});
 
          return nfl;
+     }
+
+
+     otherScene() {
+         const other = new Scene("otherScene");
+
+         other.enter((ctx) => {
+             ctx.reply("Type in the name of the subriddet and how many post you need.\n\nExample: 'blah 10'", this.keyboard.cancelKeyboard());
+
+             // Log
+             new Log(ctx).log(Strings.sother);
+         });
+
+
+         other.on("message", (ctx) => {
+             let msg = ctx.message.text;
+             let splitted = msg.split(' ');
+
+             if (splitted.length == 2 && splitted != undefined) {
+
+             } else {
+                 ctx.reply("Invalid input!");
+
+                 // reenter
+                 ctx.flow.enter("otherScene");
+             }
+         });
+
+
+
+         other.leave((ctx) => {});
+
+         return other;
      }
 
 
