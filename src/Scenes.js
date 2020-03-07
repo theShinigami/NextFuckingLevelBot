@@ -132,7 +132,25 @@ const Secrets = require("./Secrets");
              let splitted = msg.split(' ');
 
              if (splitted.length == 2 && splitted != undefined) {
+                this.redditHandler.returnNextLevel(Number(splitted[1]), splitted[0], (u) => {
+                    if (u.is_video) {
+                        ctx.replyWithVideo(
+                            u.media.reddit_video.fallback_url,
+                            this.keyboard.firstRedditCallback(u.title)
+                        );
+                    } else {
+                        ctx.replyWithPhoto(
+                            u.url,
+                            this.keyboard.firstRedditCallback(u.title)
+                        );
+                    }
+                });
 
+                // done reply
+                ctx.reply("Done!");
+
+                // leave
+                ctx.flow.leave();
              } else {
                  ctx.reply("Invalid input!");
 
